@@ -22,7 +22,6 @@ function parsePayload(value: unknown): Payload | null {
 export async function verifyAltchaPayload(
   payloadValue: unknown,
   hmacSignatureSecret: string,
-  hmacKeySignatureSecret: string,
 ): Promise<VerificationResult> {
   const payload = parsePayload(payloadValue)
 
@@ -43,7 +42,6 @@ export async function verifyAltchaPayload(
     solution: payload.solution,
     deriveKey,
     hmacSignatureSecret,
-    hmacKeySignatureSecret,
   })
 
   if (!result.verified) {
@@ -56,4 +54,3 @@ export async function verifyAltchaPayload(
 
   return { ok: true }
 }
-

@@ -5,7 +5,7 @@ declare const Netlify: {
 }
 
 export function getRequiredEnv(name: string) {
-  const value = Netlify.env.get(name)
+  const value = globalThis.Netlify?.env.get(name) || process.env[name]
 
   if (!value) {
     throw new Error(`Missing required environment variable: ${name}`)
@@ -15,6 +15,5 @@ export function getRequiredEnv(name: string) {
 }
 
 export function getEnv(name: string, fallback: string) {
-  return Netlify.env.get(name) || fallback
+  return globalThis.Netlify?.env.get(name) || process.env[name] || fallback
 }
-

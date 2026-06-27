@@ -149,10 +149,9 @@ CLIENT_ID=lancaster-outdoor-carpentry
 CLIENT_SITE_NAME=Lancaster Outdoor Carpentry
 EMAIL_SUBJECT=New Lancaster Outdoor Carpentry inquiry
 ALTCHA_HMAC_SECRET=
-ALTCHA_HMAC_KEY_SECRET=
 ```
 
-`RELAY_SECRET_KEY`, `ALTCHA_HMAC_SECRET`, and `ALTCHA_HMAC_KEY_SECRET` must be configured in Netlify environment variables and must never be committed or exposed in frontend code.
+`RELAY_SECRET_KEY` and `ALTCHA_HMAC_SECRET` must be configured in Netlify environment variables and must never be committed or exposed in frontend code.
 
 ## Deployment
 

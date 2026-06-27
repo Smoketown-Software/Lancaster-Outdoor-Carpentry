@@ -11,7 +11,6 @@ export default async (req: Request) => {
 
   try {
     const hmacSignatureSecret = getRequiredEnv('ALTCHA_HMAC_SECRET')
-    const hmacKeySignatureSecret = getRequiredEnv('ALTCHA_HMAC_KEY_SECRET')
 
     const challenge = await createChallenge({
       algorithm: 'PBKDF2/SHA-256',
@@ -20,7 +19,6 @@ export default async (req: Request) => {
       deriveKey,
       expiresAt: new Date(Date.now() + 10 * 60 * 1000),
       hmacSignatureSecret,
-      hmacKeySignatureSecret,
       data: {
         form: 'contact',
         site: 'lancaster-outdoor-carpentry',
@@ -38,4 +36,3 @@ export const config: Config = {
   path: '/api/altcha',
   method: ['GET'],
 }
-

@@ -84,7 +84,6 @@ export default async (req: Request, context: Context) => {
 
   try {
     const hmacSignatureSecret = getRequiredEnv('ALTCHA_HMAC_SECRET')
-    const hmacKeySignatureSecret = getRequiredEnv('ALTCHA_HMAC_KEY_SECRET')
     const relaySecretKey = getRequiredEnv('RELAY_SECRET_KEY')
     const relayUrl = getEnv('SMOKETOWN_RELAY_URL', 'https://smoketownsoftware.com/api/relay')
     const clientEmail = getEnv('CLIENT_EMAIL', 'lancasteroutdoorcarpentry@gmail.com')
@@ -95,7 +94,6 @@ export default async (req: Request, context: Context) => {
     const altchaResult = await verifyAltchaPayload(
       payload.altcha,
       hmacSignatureSecret,
-      hmacKeySignatureSecret,
     )
 
     if (!altchaResult.ok) {
