@@ -4,6 +4,10 @@ import { deriveKey } from 'altcha-lib/algorithms/pbkdf2'
 import { getRequiredEnv } from './_shared/env'
 import { jsonResponse, methodNotAllowed } from './_shared/responses'
 
+const CHALLENGE_COST = 1_000
+const COUNTER_MIN = 300
+const COUNTER_MAX = 1_200
+
 export default async (req: Request) => {
   if (req.method !== 'GET') {
     return methodNotAllowed()
@@ -14,8 +18,8 @@ export default async (req: Request) => {
 
     const challenge = await createChallenge({
       algorithm: 'PBKDF2/SHA-256',
-      cost: 5_000,
-      counter: randomInt(10_000, 5_000),
+      cost: CHALLENGE_COST,
+      counter: randomInt(COUNTER_MAX, COUNTER_MIN),
       deriveKey,
       expiresAt: new Date(Date.now() + 10 * 60 * 1000),
       hmacSignatureSecret,
