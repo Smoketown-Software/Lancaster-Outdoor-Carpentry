@@ -144,6 +144,10 @@ input, textarea {
   padding: var(--space-24) 0;
 }
 
+section[id] {
+  scroll-margin-top: var(--nav-height);
+}
+
 .section-label {
   font-size: var(--font-size-xs);
   font-weight: 700;
