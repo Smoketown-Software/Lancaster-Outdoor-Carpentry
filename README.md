@@ -38,13 +38,13 @@ npm run dev
 The Vite config currently serves the app from:
 
 ```text
-/test-davon-site/
+/
 ```
 
 Locally, that usually means:
 
 ```text
-http://127.0.0.1:5173/test-davon-site/
+http://127.0.0.1:5173/
 ```
 
 On Windows PowerShell, if `npm run dev` is blocked by the execution policy, use:
@@ -146,7 +146,7 @@ RELAY_SECRET_KEY=
 SMOKETOWN_RELAY_URL=https://smoketownsoftware.com/api/relay
 CLIENT_EMAIL=lancasteroutdoorcarpentry@gmail.com
 CLIENT_ID=lancaster-outdoor-carpentry
-SITE_NAME=Lancaster Outdoor Carpentry
+CLIENT_SITE_NAME=Lancaster Outdoor Carpentry
 EMAIL_SUBJECT=New Lancaster Outdoor Carpentry inquiry
 ALTCHA_HMAC_SECRET=
 ALTCHA_HMAC_KEY_SECRET=
@@ -167,10 +167,10 @@ Then deploy the generated `dist/` folder to Netlify. The included `netlify.toml`
 Important: `vite.config.js` currently sets:
 
 ```js
-base: '/test-davon-site/'
+base: '/'
 ```
 
-Keep that value if the site is hosted under `/test-davon-site/`. Change it to `/` if the site will be served from the root of a domain, such as `https://example.com/`.
+Keep that value for a Netlify site served from the root of its domain. Only use a subpath base if the site is intentionally hosted below a path such as `https://example.com/test-davon-site/`.
 
 ## Pre-Launch Checklist
 

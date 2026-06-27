@@ -89,7 +89,7 @@ export default async (req: Request, context: Context) => {
     const relayUrl = getEnv('SMOKETOWN_RELAY_URL', 'https://smoketownsoftware.com/api/relay')
     const clientEmail = getEnv('CLIENT_EMAIL', 'lancasteroutdoorcarpentry@gmail.com')
     const clientId = getEnv('CLIENT_ID', 'lancaster-outdoor-carpentry')
-    const siteName = getEnv('SITE_NAME', 'Lancaster Outdoor Carpentry')
+    const siteName = getEnv('CLIENT_SITE_NAME', 'Lancaster Outdoor Carpentry')
     const subject = getEnv('EMAIL_SUBJECT', 'New Lancaster Outdoor Carpentry inquiry')
 
     const altchaResult = await verifyAltchaPayload(
@@ -138,4 +138,3 @@ export const config: Config = {
   path: '/api/contact',
   method: ['POST'],
 }
-
