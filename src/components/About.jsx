@@ -15,10 +15,19 @@ export default function About() {
     <section className="about section" id="about">
       <div className="container about-grid">
         <div className="about-visual" ref={visualRef}>
-          <div className="about-image-block about-image-block-main reveal visible">
-            <svg viewBox="0 0 24 24">
-              <path d="M2 22h20M4 22V10l8-7 8 7v12M9 22v-6h6v6" />
-            </svg>
+          <div className="about-media-frame reveal visible">
+            <video
+              className="about-video"
+              aria-label="Lancaster Outdoor Carpentry project work video"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+            >
+              <source src="/lancaster-carpentry-process.mp4" type="video/mp4" />
+            </video>
+            <div className="about-media-label">On-Site Craftsmanship</div>
           </div>
           <div className="about-accent-bar" />
         </div>

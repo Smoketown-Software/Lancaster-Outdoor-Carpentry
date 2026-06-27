@@ -1,4 +1,3 @@
-import locLogo from '../assets/loc-logo-transparent.png'
 import './Hero.css'
 
 export default function Hero() {
@@ -29,14 +28,19 @@ export default function Hero() {
         </div>
 
         <div className="hero-visual">
-          <div className="hero-block hero-block-1" />
-          <div className="hero-block hero-block-2" />
-          <div className="hero-block hero-block-3" />
-          <div className="hero-block hero-block-circle" />
-          <div className="hero-block-center">
-            <img className="hero-block-center-logo" src={locLogo} alt="" aria-hidden="true" />
-            <div className="hero-block-center-text">Lancaster Area Since 2025</div>
-          </div>
+          <div className="hero-photo-accent hero-photo-accent-top" />
+          <figure className="hero-photo-frame">
+            <img
+              src="/lancaster-deck-before-after.jpg"
+              alt="Elevated wood deck and railing built on the back of a Lancaster area home"
+              className="hero-photo"
+            />
+            <figcaption className="hero-photo-caption">
+              <span>Recent Deck Rebuild</span>
+              <strong>Lancaster Area</strong>
+            </figcaption>
+          </figure>
+          <div className="hero-photo-accent hero-photo-accent-bottom" />
         </div>
       </div>
     </section>

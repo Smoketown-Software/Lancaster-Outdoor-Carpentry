@@ -12,38 +12,54 @@
 
 .about-visual {
   position: relative;
-  height: 480px;
+  min-height: 520px;
 }
 
-.about-image-block {
+.about-media-frame {
   position: absolute;
+  inset: 0 12% 0 0;
+  overflow: hidden;
   background-color: var(--bg-elevated);
   border: 1px solid var(--charcoal-600);
+  box-shadow: 0 24px 62px rgba(0, 0, 0, 0.24);
 }
 
-.about-image-block-main {
+.about-media-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(16, 18, 17, 0.02) 42%, rgba(16, 18, 17, 0.62) 100%);
+  pointer-events: none;
+}
+
+.about-video {
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.94) contrast(1.05);
 }
 
-.about-image-block-main svg {
-  width: 120px;
-  height: 120px;
-  stroke: var(--brass-600);
-  fill: none;
-  stroke-width: 1;
+.about-media-label {
+  position: absolute;
+  left: var(--space-6);
+  bottom: var(--space-6);
+  z-index: 1;
+  font-size: var(--font-size-xs);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
 .about-accent-bar {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 60%;
+  width: 48%;
   height: 6px;
   background-color: var(--accent);
+  z-index: 2;
 }
 
 .about-content {
@@ -98,14 +114,45 @@
 @media (max-width: 768px) {
   .about-grid {
     grid-template-columns: 1fr;
-    gap: var(--space-10);
+    gap: var(--space-8);
   }
 
   .about-visual {
-    height: 320px;
+    min-height: auto;
+  }
+
+  .about-media-frame {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.26);
+  }
+
+  .about-video {
+    object-position: center 30%;
+  }
+
+  .about-media-label {
+    left: var(--space-4);
+    right: var(--space-4);
+    bottom: var(--space-4);
+    letter-spacing: 0.12em;
+  }
+
+  .about-accent-bar {
+    bottom: -6px;
+    width: 38%;
+    height: 4px;
   }
 
   .about-values {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  .about-media-frame {
+    aspect-ratio: 1 / 1;
   }
 }
