@@ -11,7 +11,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--accent) 0%, var(--accent) 30%, transparent 30%);
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent) 40%, transparent 40%);
 }
 
 .services-header {
@@ -32,7 +32,7 @@
 }
 
 .service-card {
-  background-color: var(--bg-primary);
+  background-color: var(--charcoal-950);
   padding: var(--space-10);
   position: relative;
   overflow: hidden;
@@ -43,7 +43,7 @@
 
 .service-card:hover {
   transform: translateY(-4px);
-  border-color: var(--accent);
+  border-color: var(--brass-500);
 }
 
 .service-card::before {
@@ -92,16 +92,6 @@
   font-size: var(--font-size-sm);
   color: var(--text-secondary);
   line-height: 1.7;
-}
-
-.service-number {
-  position: absolute;
-  top: var(--space-6);
-  right: var(--space-6);
-  font-size: var(--font-size-3xl);
-  font-weight: 900;
-  color: var(--charcoal-700);
-  line-height: 1;
 }
 
 @media (max-width: 768px) {

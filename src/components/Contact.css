@@ -11,7 +11,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, transparent 70%, var(--accent) 70%);
+  background: linear-gradient(90deg, transparent 60%, var(--accent) 60%);
 }
 
 .contact-grid {
@@ -72,8 +72,15 @@
 }
 
 .contact-detail-value {
+  display: inline-block;
   font-size: var(--font-size-base);
   font-weight: 600;
+  overflow-wrap: anywhere;
+  transition: color var(--duration-fast) var(--ease-snap);
+}
+
+a.contact-detail-value:hover {
+  color: var(--accent);
 }
 
 /* Form */
@@ -95,6 +102,14 @@
   gap: var(--space-2);
 }
 
+.form-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .form-label {
   font-size: var(--font-size-xs);
   font-weight: 700;
@@ -107,7 +122,7 @@
 .form-textarea {
   width: 100%;
   padding: var(--space-4);
-  background-color: var(--bg-primary);
+  background-color: var(--charcoal-950);
   border: 1px solid var(--charcoal-600);
   color: var(--text-primary);
   font-size: var(--font-size-base);
@@ -120,6 +135,12 @@
   border-color: var(--accent);
 }
 
+.form-input:disabled,
+.form-textarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
 .form-input::placeholder,
 .form-textarea::placeholder {
   color: var(--charcoal-500);
@@ -128,6 +149,41 @@
 .form-textarea {
   resize: vertical;
   min-height: 140px;
+}
+
+.form-verification {
+  --altcha-color-base: var(--charcoal-950);
+  --altcha-color-base-content: var(--text-primary);
+  --altcha-border-color: var(--charcoal-600);
+  --altcha-color-primary: var(--accent);
+  --altcha-color-primary-content: var(--on-accent);
+  --altcha-color-success: var(--accent);
+  --altcha-border-radius: 0;
+  --altcha-max-width: 100%;
+}
+
+.form-verification altcha-widget {
+  display: block;
+  max-width: 360px;
+}
+
+.form-status {
+  min-height: 1.4em;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.form-status-idle {
+  visibility: hidden;
+}
+
+.form-status-success {
+  color: var(--accent);
+}
+
+.form-status-error {
+  color: #f0a09a;
 }
 
 .form-submit {
@@ -139,7 +195,7 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--black);
+  color: var(--on-accent);
   background-color: var(--accent);
   padding: var(--space-4) var(--space-10);
   border: none;
@@ -151,6 +207,12 @@
 .form-submit:hover {
   background-color: var(--accent-hover);
   transform: translateY(-1px);
+}
+
+.form-submit:disabled {
+  cursor: wait;
+  opacity: 0.75;
+  transform: none;
 }
 
 .form-submit svg {

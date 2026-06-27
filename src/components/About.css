@@ -17,7 +17,7 @@
 
 .about-image-block {
   position: absolute;
-  background-color: var(--charcoal-800);
+  background-color: var(--bg-elevated);
   border: 1px solid var(--charcoal-600);
 }
 
@@ -32,7 +32,7 @@
 .about-image-block-main svg {
   width: 120px;
   height: 120px;
-  stroke: var(--charcoal-600);
+  stroke: var(--brass-600);
   fill: none;
   stroke-width: 1;
 }
@@ -44,30 +44,6 @@
   width: 60%;
   height: 6px;
   background-color: var(--accent);
-}
-
-.about-badge {
-  position: absolute;
-  top: var(--space-6);
-  right: -20px;
-  background-color: var(--accent);
-  color: var(--black);
-  padding: var(--space-4) var(--space-6);
-  text-align: center;
-  z-index: 2;
-}
-
-.about-badge-number {
-  font-size: var(--font-size-3xl);
-  font-weight: 900;
-  line-height: 1;
-}
-
-.about-badge-text {
-  font-size: var(--font-size-xs);
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
 }
 
 .about-content {
@@ -93,7 +69,7 @@
   align-items: flex-start;
   gap: var(--space-3);
   padding: var(--space-4);
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-tertiary);
   border-left: 3px solid var(--accent);
 }
 
@@ -127,10 +103,6 @@
 
   .about-visual {
     height: 320px;
-  }
-
-  .about-badge {
-    right: 0;
   }
 
   .about-values {

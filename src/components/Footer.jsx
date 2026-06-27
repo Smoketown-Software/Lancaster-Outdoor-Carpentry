@@ -1,3 +1,4 @@
+import locLogo from '../assets/loc-logo-transparent.png'
 import './Footer.css'
 
 export default function Footer() {
@@ -10,32 +11,35 @@ export default function Footer() {
           {/* Brand column */}
           <div className="footer-brand">
             <div className="footer-logo">
-              <span className="footer-logo-mark">D</span>
-              <span>DAVON INC</span>
+              <img
+                className="footer-logo-image"
+                src={locLogo}
+                alt="Lancaster Outdoor Carpentry"
+              />
             </div>
             <p className="footer-tagline">
-              Quality construction and building services.
-              One man, one standard: built right.
+              Pennsylvania carpenter serving the Lancaster area since 2025.
+              Decks, pergolas, and mini barns built with perseverance,
+              integrity, and steadfast workmanship.
             </p>
-            <div className="footer-socials">
-              {/* Facebook */}
-              <a href="#" className="footer-social" aria-label="Facebook">
-                <svg viewBox="0 0 24 24">
-                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
-                </svg>
+            <div className="footer-contact">
+              <a className="footer-contact-link" href="tel:17177251461">(717) 725-1461</a>
+              <a className="footer-contact-link" href="mailto:lancasteroutdoorcarpentry@gmail.com">
+                lancasteroutdoorcarpentry@gmail.com
               </a>
-              {/* Instagram */}
-              <a href="#" className="footer-social" aria-label="Instagram">
+            </div>
+            <div className="footer-socials">
+              <a
+                href="https://www.instagram.com/lancaster.outdoor.carpentry/?utm_source=ig_web_button_share_sheet"
+                className="footer-social"
+                aria-label="Instagram"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <svg viewBox="0 0 24 24">
                   <rect x="2" y="2" width="20" height="20" rx="5" />
                   <circle cx="12" cy="12" r="5" />
                   <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
-                </svg>
-              </a>
-              {/* LinkedIn */}
-              <a href="#" className="footer-social" aria-label="LinkedIn">
-                <svg viewBox="0 0 24 24">
-                  <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z" />
                 </svg>
               </a>
             </div>
@@ -56,24 +60,31 @@ export default function Footer() {
           <div>
             <div className="footer-column-title">Services</div>
             <div className="footer-links">
-              <a href="#services" className="footer-link">Renovations</a>
-              <a href="#services" className="footer-link">New Builds</a>
-              <a href="#services" className="footer-link">Structural Work</a>
-              <a href="#services" className="footer-link">Concrete &amp; Masonry</a>
-              <a href="#services" className="footer-link">Decks &amp; Outdoor</a>
-              <a href="#services" className="footer-link">Repairs</a>
+              <a href="#services" className="footer-link">Decks</a>
+              <a href="#services" className="footer-link">Pergolas</a>
+              <a href="#services" className="footer-link">Mini Barns</a>
             </div>
           </div>
         </div>
 
         <div className="footer-bottom">
           <div className="footer-copyright">
-            &copy; {year} Davon Inc. All rights reserved.
+            &copy; {year} Lancaster Outdoor Carpentry. All rights reserved.
           </div>
           <div className="footer-built">
             <span className="footer-built-dot" />
-            Built with purpose
+            Perseverance. Integrity. Steadfastness.
           </div>
+        </div>
+        <div className="footer-credit">
+          <a
+            className="footer-credit-link"
+            href="https://smoketownsoftware.com"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Website by Smoketown Software Solutions
+          </a>
         </div>
       </div>
     </footer>

@@ -1,25 +1,19 @@
-import { useReveal } from '../hooks/useReveal'
+import locLogo from '../assets/loc-logo-transparent.png'
 import './Hero.css'
 
 export default function Hero() {
-  const headingRef = useReveal()
-  const statsRef = useReveal()
-
   return (
     <section className="hero" id="hero">
       <div className="container hero-grid">
         <div className="hero-content">
-          <div className="hero-label" ref={headingRef}>
-            Construction &amp; Building Services
-          </div>
           <h1 className="hero-heading reveal visible">
             Built <span className="accent">Right.</span><br />
             Built to <span className="accent">Last.</span>
           </h1>
           <p className="hero-description">
-            Quality craftsmanship and dependable service for residential
-            and commercial construction projects. One builder, one standard
-            of excellence.
+            Pennsylvania carpenter, serving the Lancaster area since 2025.
+            Decks, pergolas, and mini barns built with perseverance,
+            integrity, and steadfast attention to the details.
           </p>
           <div className="hero-actions">
             <a href="#contact" className="btn-primary">
@@ -32,21 +26,6 @@ export default function Hero() {
               Our Services
             </a>
           </div>
-
-          <div className="hero-stats" ref={statsRef}>
-            <div className="reveal visible">
-              <div className="hero-stat-value">15+</div>
-              <div className="hero-stat-label">Years Experience</div>
-            </div>
-            <div className="reveal visible">
-              <div className="hero-stat-value">200+</div>
-              <div className="hero-stat-label">Projects Completed</div>
-            </div>
-            <div className="reveal visible">
-              <div className="hero-stat-value">100%</div>
-              <div className="hero-stat-label">Owner-Operated</div>
-            </div>
-          </div>
         </div>
 
         <div className="hero-visual">
@@ -55,8 +34,8 @@ export default function Hero() {
           <div className="hero-block hero-block-3" />
           <div className="hero-block hero-block-circle" />
           <div className="hero-block-center">
-            <div className="hero-block-center-number">D</div>
-            <div className="hero-block-center-text">Since 2011</div>
+            <img className="hero-block-center-logo" src={locLogo} alt="" aria-hidden="true" />
+            <div className="hero-block-center-text">Lancaster Area Since 2025</div>
           </div>
         </div>
       </div>

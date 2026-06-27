@@ -2,7 +2,6 @@ import { useReveal } from '../hooks/useReveal'
 import './About.css'
 
 const values = [
-  { text: 'Owner on every job', icon: <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg> },
   { text: 'Honest, upfront pricing', icon: <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg> },
   { text: 'Quality materials', icon: <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> },
   { text: 'Clean, organized sites', icon: <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 12h16M12 4v16"/></svg> },
@@ -22,29 +21,23 @@ export default function About() {
             </svg>
           </div>
           <div className="about-accent-bar" />
-          <div className="about-badge">
-            <div className="about-badge-number">15+</div>
-            <div className="about-badge-text">Years</div>
-          </div>
         </div>
 
         <div className="about-content reveal" ref={contentRef}>
-          <div className="section-label">About Davon Inc</div>
+          <div className="section-label">About Lancaster Outdoor Carpentry</div>
           <h2 className="section-heading">
-            One Builder.<br />One Standard.
+            Built with Care.<br />Finished to Last.
           </h2>
           <p className="about-text">
-            Davon Inc is a one-man operation built on a simple principle:
-            do the work right, every time. When you hire Davon Inc, you
-            get the owner on the job — no subcontractors you've never met,
-            no runaround, no surprises.
+            Lancaster Outdoor Carpentry is built on a simple principle:
+            do the work right, every time. Every project is approached with
+            clear communication, dependable scheduling, and careful attention
+            to the details that make outdoor spaces last.
           </p>
           <p className="about-text">
-            With over 15 years of hands-on experience in construction and
-            renovation, every project receives the same focused attention
-            and personal accountability. From the first conversation to
-            the final walkthrough, it's one point of contact, one standard
-            of quality.
+            From the first conversation to the final walkthrough, the focus
+            stays on practical planning, quality materials, and craftsmanship
+            that feels solid long after the work is complete.
           </p>
 
           <div className="about-values">

@@ -1,30 +1,78 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import 'altcha'
 import { useReveal } from '../hooks/useReveal'
 import './Contact.css'
+
+const initialFormData = {
+  name: '',
+  email: '',
+  phone: '',
+  service: '',
+  message: '',
+}
 
 export default function Contact() {
   const formRef = useReveal()
   const infoRef = useReveal()
+  const altchaRef = useRef(null)
 
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
+  const [formData, setFormData] = useState(initialFormData)
+  const [formStatus, setFormStatus] = useState({
+    type: 'idle',
     message: '',
   })
-  const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e) => {
+  const resetAltcha = () => {
+    altchaRef.current?.reset?.()
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // In production, wire this to an email service or form backend
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 4000)
-    setFormData({ name: '', email: '', phone: '', service: '', message: '' })
+    setIsSubmitting(true)
+    setFormStatus({ type: 'idle', message: '' })
+
+    const submittedForm = new FormData(e.currentTarget)
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          website: submittedForm.get('website') || '',
+          altcha: submittedForm.get('altcha') || '',
+        }),
+      })
+      const result = await response.json().catch(() => null)
+
+      if (!response.ok || !result?.ok) {
+        throw new Error(result?.message || 'Unable to send your message right now.')
+      }
+
+      setFormData(initialFormData)
+      resetAltcha()
+      setFormStatus({
+        type: 'success',
+        message: 'Message sent. We will be in touch soon.',
+      })
+    } catch (error) {
+      resetAltcha()
+      setFormStatus({
+        type: 'error',
+        message: error instanceof Error
+          ? error.message
+          : 'Unable to send your message right now.',
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -37,8 +85,8 @@ export default function Contact() {
           </h2>
           <p className="contact-text">
             Ready to start building? Reach out for a free consultation
-            and estimate. No pressure, no obligations — just a
-            straightforward conversation about what you need.
+            and estimate. No pressure, no obligations, just a straightforward
+            conversation about what you need.
           </p>
 
           <div className="contact-details">
@@ -50,7 +98,7 @@ export default function Contact() {
               </div>
               <div>
                 <div className="contact-detail-label">Phone</div>
-                <div className="contact-detail-value">(555) 123-4567</div>
+                <a className="contact-detail-value" href="tel:17177251461">(717) 725-1461</a>
               </div>
             </div>
 
@@ -63,26 +111,47 @@ export default function Contact() {
               </div>
               <div>
                 <div className="contact-detail-label">Email</div>
-                <div className="contact-detail-value">info@davoninc.com</div>
+                <a className="contact-detail-value" href="mailto:lancasteroutdoorcarpentry@gmail.com">
+                  lancasteroutdoorcarpentry@gmail.com
+                </a>
               </div>
             </div>
 
             <div className="contact-detail">
               <div className="contact-detail-icon">
                 <svg viewBox="0 0 24 24">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                  <circle cx="12" cy="10" r="3" />
+                  <rect x="2" y="2" width="20" height="20" rx="5" />
+                  <circle cx="12" cy="12" r="5" />
+                  <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
                 </svg>
               </div>
               <div>
-                <div className="contact-detail-label">Service Area</div>
-                <div className="contact-detail-value">Greater Metro Area</div>
+                <div className="contact-detail-label">Instagram</div>
+                <a
+                  className="contact-detail-value"
+                  href="https://www.instagram.com/lancaster.outdoor.carpentry/?utm_source=ig_web_button_share_sheet"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  @lancaster.outdoor.carpentry
+                </a>
               </div>
             </div>
           </div>
         </div>
 
         <form className="contact-form reveal" ref={formRef} onSubmit={handleSubmit}>
+          <div className="form-honeypot" aria-hidden="true">
+            <label htmlFor="website">Website</label>
+            <input
+              id="website"
+              name="website"
+              type="text"
+              tabIndex="-1"
+              autoComplete="off"
+            />
+          </div>
+
           <div className="form-row">
             <div className="form-group">
               <label className="form-label" htmlFor="name">Name</label>
@@ -94,6 +163,7 @@ export default function Contact() {
                 placeholder="Your name"
                 value={formData.name}
                 onChange={handleChange}
+                disabled={isSubmitting}
                 required
               />
             </div>
@@ -107,6 +177,7 @@ export default function Contact() {
                 placeholder="your@email.com"
                 value={formData.email}
                 onChange={handleChange}
+                disabled={isSubmitting}
                 required
               />
             </div>
@@ -120,9 +191,10 @@ export default function Contact() {
                 type="tel"
                 id="phone"
                 name="phone"
-                placeholder="(555) 000-0000"
+                placeholder="Your phone number"
                 value={formData.phone}
                 onChange={handleChange}
+                disabled={isSubmitting}
               />
             </div>
             <div className="form-group">
@@ -132,9 +204,10 @@ export default function Contact() {
                 type="text"
                 id="service"
                 name="service"
-                placeholder="e.g. Kitchen Renovation"
+                placeholder="e.g. Deck, pergola, or mini barn"
                 value={formData.service}
                 onChange={handleChange}
+                disabled={isSubmitting}
               />
             </div>
           </div>
@@ -148,12 +221,29 @@ export default function Contact() {
               placeholder="Tell us about your project..."
               value={formData.message}
               onChange={handleChange}
+              disabled={isSubmitting}
               required
             />
           </div>
 
-          <button type="submit" className="form-submit">
-            {submitted ? 'Message Sent!' : 'Send Message'}
+          <div className="form-verification">
+            <altcha-widget
+              ref={altchaRef}
+              challenge="/api/altcha"
+              name="altcha"
+              type="checkbox"
+            ></altcha-widget>
+          </div>
+
+          <div
+            className={`form-status form-status-${formStatus.type}`}
+            aria-live="polite"
+          >
+            {formStatus.message}
+          </div>
+
+          <button type="submit" className="form-submit" disabled={isSubmitting}>
+            {isSubmitting ? 'Sending...' : 'Send Message'}
             <svg viewBox="0 0 16 16" fill="none">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="square" />
             </svg>

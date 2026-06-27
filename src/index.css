@@ -1,41 +1,45 @@
 /* ═══════════════════════════════════════════════════
-   DAVON INC — Bauhaus Design System
-   Dark Charcoal + Warm Gold
+   Lancaster Outdoor Carpentry — Outdoor Palette
+   Charcoal + Brass + Bone
    ═══════════════════════════════════════════════════ */
 
 :root {
   /* Core Palette */
-  --charcoal-900: #1a1a1a;
-  --charcoal-800: #222222;
-  --charcoal-700: #2d2d2d;
-  --charcoal-600: #3a3a3a;
-  --charcoal-500: #555555;
-  --charcoal-400: #777777;
-  --charcoal-300: #999999;
-  --charcoal-200: #cccccc;
-  --charcoal-100: #e8e8e8;
-  --charcoal-50: #f5f5f3;
+  --charcoal-950: #101211;
+  --charcoal-900: #151715;
+  --charcoal-800: #1b1e1c;
+  --charcoal-700: #282d29;
+  --charcoal-600: #3a423c;
+  --charcoal-500: #5a635b;
+  --charcoal-400: #818980;
+  --charcoal-300: #aeb4aa;
+  --charcoal-200: #d5d4cc;
+  --charcoal-100: #ece7d9;
+  --charcoal-50: #f8f3e7;
 
-  --gold-500: #c8a84e;
-  --gold-400: #d4b85c;
-  --gold-300: #e0c96f;
-  --gold-600: #b8942f;
-  --gold-700: #9a7b1f;
+  --brass-700: #9d7729;
+  --brass-600: #bd9337;
+  --brass-500: #d2ad48;
+  --brass-400: #e0c36a;
+  --brass-300: #ead487;
 
-  --white: #fafafa;
-  --black: #111111;
+  --bone-500: #f1eadb;
+  --bone-400: #f8f3e7;
+  --bone-300: #fffaf0;
 
   /* Semantic */
   --bg-primary: var(--charcoal-900);
   --bg-secondary: var(--charcoal-800);
-  --bg-tertiary: var(--charcoal-700);
-  --bg-light: var(--charcoal-50);
-  --text-primary: var(--white);
-  --text-secondary: var(--charcoal-300);
-  --text-muted: var(--charcoal-400);
-  --accent: var(--gold-500);
-  --accent-hover: var(--gold-400);
-  --accent-dark: var(--gold-700);
+  --bg-tertiary: var(--charcoal-800);
+  --bg-elevated: var(--charcoal-700);
+  --bg-light: var(--bone-400);
+  --text-primary: var(--bone-300);
+  --text-secondary: var(--charcoal-200);
+  --text-muted: var(--charcoal-300);
+  --accent: var(--brass-500);
+  --accent-hover: var(--brass-400);
+  --accent-dark: var(--brass-700);
+  --on-accent: var(--charcoal-950);
 
   /* Typography */
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -67,7 +71,7 @@
 
   /* Layout */
   --max-width: 1200px;
-  --nav-height: 72px;
+  --nav-height: 100px;
 
   /* Transitions */
   --ease-mechanical: cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -181,6 +185,7 @@ input, textarea {
 /* ─── Responsive ─── */
 @media (max-width: 768px) {
   :root {
+    --nav-height: 88px;
     --font-size-5xl: 2.5rem;
     --font-size-6xl: 3rem;
     --font-size-4xl: 2rem;
