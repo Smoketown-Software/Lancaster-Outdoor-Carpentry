@@ -1,0 +1,22 @@
+{
+  "name": "Lancaster Outdoor Carpentry",
+  "short_name": "LOC",
+  "description": "Decks, pergolas, and mini barns built for the Lancaster, PA area.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#151412",
+  "theme_color": "#151412",
+  "icons": [
+    {
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
