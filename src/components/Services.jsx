@@ -40,15 +40,29 @@ export default function Services() {
   return (
     <section className="services section" id="services">
       <div className="container">
-        <div className="services-header">
-          <div className="section-label">What We Do</div>
-          <h2 className="section-heading">
-            Decks, Pergolas,<br />Mini Barns
-          </h2>
-          <p className="services-description">
-            Outdoor structures built with careful planning, quality materials,
-            and hands-on craftsmanship.
-          </p>
+        <div className="services-intro">
+          <div className="services-header">
+            <div className="section-label">What We Do</div>
+            <h2 className="section-heading">
+              Decks, Pergolas,<br />Mini Barns
+            </h2>
+            <p className="services-description">
+              Outdoor structures built with careful planning, quality materials,
+              and hands-on craftsmanship.
+            </p>
+          </div>
+
+          <figure className="services-feature">
+            <img
+              className="services-feature-image"
+              src="/porch-roof-carpentry.jpg"
+              alt="Custom wood porch roof framing over a brick home entryway"
+            />
+            <figcaption className="services-feature-caption">
+              <span>Porch Roof Framing</span>
+              <strong>Exterior Carpentry</strong>
+            </figcaption>
+          </figure>
         </div>
 
         <div className="services-grid reveal-stagger" ref={gridRef}>
