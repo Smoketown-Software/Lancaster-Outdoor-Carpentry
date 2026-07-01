@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════
    Lancaster Outdoor Carpentry — Outdoor Palette
-   Charcoal + Brass + Bone
+   Charcoal + Orange + Bone
    ═══════════════════════════════════════════════════ */
 
 :root {
@@ -17,11 +17,11 @@
   --charcoal-100: #ece7d9;
   --charcoal-50: #f8f3e7;
 
-  --brass-700: #9d7729;
-  --brass-600: #bd9337;
-  --brass-500: #d2ad48;
-  --brass-400: #e0c36a;
-  --brass-300: #ead487;
+  --orange-700: #884c28;
+  --orange-600: #aa5c2e;
+  --orange-500: #cc7137;
+  --orange-400: #d68148;
+  --orange-300: #e39a68;
 
   --bone-500: #f1eadb;
   --bone-400: #f8f3e7;
@@ -36,9 +36,9 @@
   --text-primary: var(--bone-300);
   --text-secondary: var(--charcoal-200);
   --text-muted: var(--charcoal-300);
-  --accent: var(--brass-500);
-  --accent-hover: var(--brass-400);
-  --accent-dark: var(--brass-700);
+  --accent: var(--orange-500);
+  --accent-hover: var(--orange-400);
+  --accent-dark: var(--orange-700);
   --on-accent: var(--charcoal-950);
 
   /* Typography */

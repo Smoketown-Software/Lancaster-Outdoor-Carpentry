@@ -121,7 +121,7 @@
 
 .service-card:hover {
   transform: translateY(-4px);
-  border-color: var(--brass-500);
+  border-color: var(--accent);
 }
 
 .service-card::before {
